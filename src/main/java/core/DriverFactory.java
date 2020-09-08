@@ -27,7 +27,9 @@ public class DriverFactory {
 				driver = new ChromeDriver();
 				break;
 		}
+		System.out.println("Getting page load timeout...");
 		driver.manage().timeouts().pageLoadTimeout(Long.parseLong(TestConfig.getProperty("pageLoadTimeout")), TimeUnit.SECONDS);
+		System.out.println("Getting implicit wait timeout...");
 		driver.manage().timeouts().implicitlyWait(Long.parseLong(TestConfig.getProperty("implicitWait")), TimeUnit.SECONDS);
 		return driver;
 	}

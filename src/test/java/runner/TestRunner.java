@@ -18,9 +18,12 @@ public class TestRunner {
 
     @BeforeClass    // JUnit annotation
     public static void test() throws Exception{
+        System.out.println("Running @BeforeClass...");
         String env = System.getenv("env").toLowerCase();
         TestConfig.load(env);
         TestConfig.addProperty("browser", System.getenv("browser"));
         TestConfig.addProperty("env", env);
+        System.out.println("Env = " + TestConfig.getProperty("env"));
+        System.out.println("Browser = " + TestConfig.getProperty("browser"));
     }
 }
